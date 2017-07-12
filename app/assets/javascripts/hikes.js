@@ -35,8 +35,10 @@ $(document).ready(function(){
     }).addTo(mymap);
 
 
-//=====================================================================
-//code from: http://plnkr.co/edit/YjcPKL7kB1bIByu7QJ2u?p=preview
+//========================================================================
+//some code below from: http://plnkr.co/edit/YjcPKL7kB1bIByu7QJ2u?p=preview
+//========================================================================
+
 
     var GoogleSearch = L.Control.extend({
      onAdd: function() {
@@ -61,31 +63,16 @@ $(document).ready(function(){
        return;
      }
 
-     var group = L.featureGroup();
-
      places.forEach(function(place) {
 
-       // Create a marker for each place.
-       console.log(places);
-       console.log(place.geometry.location.lat() + " / " + place.geometry.location.lng());
-       var marker = L.marker([
+      mymap.flyTo([
          place.geometry.location.lat(),
          place.geometry.location.lng()
-       ]);
-       group.addLayer(marker);
-     });
-
-     group.addTo(mymap);
-     mymap.fitBounds(group.getBounds());
-
-   });
+     ]); // flytTo method
+   }); //forEach loop
 
 
-//=====================================================================
-    // var searchLayer = L.geoJson()
-    // // // //... adding data in searchLayer ...
-    // L.map('mapid', { searchControl: {layer: searchLayer} });
-
+    }); //Search box event listener
 
     console.log('hikes', hikes);
     // the 'hikes' array of hikes is initialised in app/view/hikes/index.html.erb
