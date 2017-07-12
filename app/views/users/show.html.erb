@@ -1,0 +1,17 @@
+<h1> Hiker Details </h1>
+
+<p> <%= cl_image_tag @user.photo %>  </p>
+<p>First Name: <%= @user.firstname %> </p>
+<p>Surname: <%= @user.surname %> </p>
+<p>Email: <%= @user.email %> </p>
+<p>Location: <%= @user.location %> </p>
+
+<div>
+  <button><%= link_to 'Create Hike', new_hike_path %>  </button> | <button><%= link_to 'Search for Hikes', hikes_path %></button>
+</div>
+
+<div>
+  <% if @current_user == @user %>
+    <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  <% end %>
+</div>

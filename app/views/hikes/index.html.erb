@@ -1,0 +1,7 @@
+<script>
+  var hikes = <%= raw @hikes.to_json %>;
+</script>
+
+<input type="text" placeholder="Search location">
+<div> <%= link_to 'User Profile', user_path(@current_user) %></div>
+<div id="mapid"></div>

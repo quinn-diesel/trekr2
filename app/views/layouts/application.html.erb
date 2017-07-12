@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trekr</title>
+    <%= csrf_meta_tags %>
+
+    <%= cloudinary_js_config %>
+
+    <script src="//scribblemaps.com/api/js/"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg&v=3&libraries=places&sensor=false"></script>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+
+    <link     href="https://fonts.googleapis.com/css?family=BioRhyme"                 rel="stylesheet">
+
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+    <% unless "#{params[:controller]}.#{params[:action]}" == "static.show" ||  "#{params[:controller]}.#{params[:action]}" == "session.new"  %>
+
+        <% unless @current_user.present? %>
+                <button> <%= link_to 'Login', login_path %></button> <button><%= link_to 'Signup', new_user_path %></button>
+              <% else %>
+                <p>
+                  Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %>
+                  <button> <%= link_to 'Logout', login_path, method: :delete %></button>
+              </p>
+        <% end %>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>

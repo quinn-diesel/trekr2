@@ -1,0 +1,9 @@
+<%= form_for @tip, html: {multipart: true} do |f| %>
+
+  <%= f.label :tip %>
+  <%= f.text_field :tip %>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>
