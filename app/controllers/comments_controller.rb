@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def create
-      @comment = Comment.new(comment_params);
+      hike = Hike.find params[:hike_id]
+      comment = Comment.create comment: params[:comment], hike: hike
   end
 
   def update

@@ -22,7 +22,27 @@ if( $('.hikes.show').length){
 
     $('#backHikes').on('click', function(){
         window.location.href="/hikes";
-    })
+    });
+
+    $('#submitComment').on('click',function(){
+        var comment = $('#commentText').val();
+        $.ajax({
+            url: '/comments',
+            method: 'POST',
+            data: {
+              comment: comment,
+              hike_id: hike_id
+            },
+            datatype: 'json'
+        })
+        .done(function(res){
+            $('<p>').html(comment).appendTo('#commentContainer');
+            $('#commentText').val('');
+        })
+        .fail(function(xhr, status, error){
+            console.log(xhr, status, error);
+        })
+    });
 
     startingWaypoint = waypoints[0];
     console.log(Array.isArray(startingWaypoint));

@@ -25,7 +25,13 @@
 
 
 
-<div id='commentBox'></div>
+<div id='commentContainer'>
+    <% @hike.comments.each do |c| %>
+        <p><%= c.comment %></p>
+    <% end %>
+</div>
+<textarea id="commentText"placeholder="Comment" rows="8" cols="80"></textarea>
+<button id="submitComment">Submit</button>
 
 
 
