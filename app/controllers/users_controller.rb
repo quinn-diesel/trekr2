@@ -17,6 +17,7 @@ before_action :check_if_logged_in, only: [ :hike_create, :update_hikes ]
 
         if params[:file].present?
           # perform upload to cloundinary
+          req = Cloudinary::Uploader.upload params[:file]
           @user.photo = req['public_id']
         end
 
@@ -34,6 +35,7 @@ before_action :check_if_logged_in, only: [ :hike_create, :update_hikes ]
 
 
     if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
       @user.photo = req['public_id']
     end
 
