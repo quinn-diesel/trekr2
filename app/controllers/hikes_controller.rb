@@ -83,7 +83,7 @@ class HikesController < ApplicationController
     #   puts testies
 
 
-     render json: {status: 200, success: true, hike: @hike}
+    #  render json: {status: 200, success: true, hike: @hike}
 
 
      def update_waypoints
@@ -92,6 +92,9 @@ class HikesController < ApplicationController
        #   desc = params[:description]
        #   puts waypointArray
        #   hike = Hike.create(hike_params)
+
+    #    binding.pry
+
        hike = Hike.find params['id']
        hike.update({
            name: params[:name],

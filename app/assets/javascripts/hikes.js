@@ -281,6 +281,9 @@ if( $('.hikes.edit').length){
             var hikeName = $("#hikeName").val();
             var hikeDesc = $("#hikeDesc").val();
         }
+
+        var hikeID = $(this).attr('hike-id');
+
         // Save hike path if a path has been drawn
         var overlays = sm.map.getOverlays();
 
@@ -310,7 +313,8 @@ if( $('.hikes.edit').length){
                 data: {
                     waypoints: ajax_data,
                     name: hikeName,
-                    description: hikeDesc
+                    description: hikeDesc,
+                    hike_id: hikeID
                  },
                  datatype: "json"
             })
