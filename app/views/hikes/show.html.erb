@@ -1,10 +1,20 @@
 <script>
   var waypoints = <%= raw @waypoints.to_json %>;
+
+  var hike_id = '<%= @hike.id %>';
+
+  var markers = <%= raw @hike.markers.to_json include: [:tips] %>
+
+  // var tips = <%=  %>
+
 </script>
 
 <button id="backHikes">All Hikes</button>
 
 <div id="mapid"></div>
+
+<button type="button" id="addMarker">Add Marker</button>
+
 <div>
     <% if @current_user == @hike.user %>
        <div id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></div>
@@ -13,4 +23,18 @@
     <p><%= @hike.description %></p>
 </div>
 
+
+
 <div id='commentBox'></div>
+
+
+
+<!-- # <%= form_for new_tip_path, html: {multipart: true} do |f| %>
+#
+#   <%= f.label :tip %>
+#   <%= f.text_field :tip %>
+#   <br>
+#
+#   <%= f.submit %>
+#
+# <% end %> -->

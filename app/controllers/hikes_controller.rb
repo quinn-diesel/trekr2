@@ -28,6 +28,7 @@ class HikesController < ApplicationController
         waypoint = [w.lat, w.long]
         @waypoints.push waypoint
       end
+      
   end
 
   def edit
