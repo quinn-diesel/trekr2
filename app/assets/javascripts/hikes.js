@@ -199,10 +199,6 @@ $(document).ready(function(){
             window.location.href="/hikes";
         })
 
-        // $('#editHike').on('click', function(){
-        //     window.location.href='/hikes/' + + '/edit';
-        // })
-
         startingWaypoint = waypoints[0];
         console.log(Array.isArray(startingWaypoint));
         var mymap = L.map('mapid').setView(startingWaypoint, 13);
