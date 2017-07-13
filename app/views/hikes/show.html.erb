@@ -7,8 +7,10 @@
 <div id="mapid"></div>
 <div>
     <% if @current_user == @hike.user %>
-       <!-- <button id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></button> -->
+       <div id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></div>
     <% end %>
     <h3><%= @hike.name %></h3>
     <p><%= @hike.description %></p>
 </div>
+
+<div id='commentBox'></div>

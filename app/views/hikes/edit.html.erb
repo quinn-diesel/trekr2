@@ -1,2 +1,12 @@
-<h1>Hikes#edit</h1>
-<p>Find me in app/views/hikes/edit.html.erb</p>
+<script>
+  var hike = <%= raw @hike.to_json %>;
+  var waypoints = <%= raw @waypoints.to_json %>;
+</script>
+
+<%= text_field_tag :name, nil , id: "hikeName", placeholder: "Name" %><br>
+<%= text_area_tag :description, nil ,  id: "hikeDesc", placeholder: "Description" %>
+<%= text_area_tag :id, nil, id: "id", placeholder: "ID" %>
+<br>
+
+<button id="updateHike">Update Hike Path</button>
+<div id="mapid"></div>

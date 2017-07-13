@@ -31,6 +31,13 @@ class HikesController < ApplicationController
   end
 
   def edit
+      @hike = Hike.find params["id"]
+      waypoints = @hike.waypoints
+      @waypoints = []
+      waypoints.each do |w|
+        waypoint = [w.lat, w.long]
+        @waypoints.push waypoint
+      end
   end
 
   def new
@@ -69,18 +76,50 @@ class HikesController < ApplicationController
         #       lat: lat,
         #       long: long
         #       })
+       end
       end
     end
 
     #   puts testies
 
 
-     render json: {status: 200, success: true, hike: hike}
+     render json: {status: 200, success: true, hike: @hike}
+
+
+     def update_waypoints
+       puts params
+       waypointArray = params[:waypoints]
+       #   desc = params[:description]
+       #   puts waypointArray
+       #   hike = Hike.create(hike_params)
+       hike = Hike.find params['id']
+       hike.update({
+           name: params[:name],
+           description: params[:description],
+           user: @current_user
+       })
+       #   testies = []
+
+       if params[:waypoints].present?
+         waypointArray.each do |key, val|
+             lat =  val[:lat]  #waypointArray[i]['lat']
+             long = val[:lng]  #waypointArray[i]['lng']
+             hike.Waypoints.update({
+                 lat: lat,
+                 long: long,
+                 hike_id: hike.id
+             })
+       #   testies.push({
+           #       lat: lat,
+           #       long: long
+           #       })
+         end
+       end
 
   end
 
   private
   def hike_params
-  params.require(:hike).permit(:name, :description)
+  params.require(:hike).permit(:name, :description, :id)
   end
 end
