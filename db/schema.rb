@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712021132) do
+ActiveRecord::Schema.define(version: 20170713053541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,18 +39,26 @@ ActiveRecord::Schema.define(version: 20170712021132) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "markers", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "long"
+    t.integer  "hike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string   "image_url"
-    t.integer  "waypoint_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "marker_id"
   end
 
   create_table "tips", force: :cascade do |t|
     t.text     "tip"
-    t.integer  "waypoint_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "marker_id"
   end
 
   create_table "users", force: :cascade do |t|

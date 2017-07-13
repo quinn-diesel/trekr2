@@ -3,5 +3,6 @@ class Hike < ApplicationRecord
     has_many :completions
     has_many :waypoints
     has_many :comments
+    has_many :markers
 
 end

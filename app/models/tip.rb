@@ -1,3 +1,3 @@
 class Tip < ApplicationRecord
-    belongs_to :waypoint, optional: true
+    belongs_to :marker, optional: true
 end

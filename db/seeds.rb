@@ -149,13 +149,3 @@ h3.comments << com3
 u1.comments << com1
 u2.comments << com2
 u3.comments << com3
-
-### Waypoint to Tips ###
-w1.tips << t1
-w4.tips << t2
-w7.tips << t3
-
-### Waypoint to Photos ###
-w2.photos << p1
-w5.photos << p2
-w7.photos << p3
