@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get    '/waypoints/:hike_id' => 'hikes#hike_waypoints'
   post   '/hikes/savepoints' => 'hikes#save_waypoints'
+  post   '/hikes/updatepoints' => 'hikes#update_waypoints'
 
   resources :users
   resources :hikes
