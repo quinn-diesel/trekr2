@@ -36,7 +36,8 @@ if( $('.hikes.show').length){
             datatype: 'json'
         })
         .done(function(res){
-            $('<p>').html(comment).appendTo('#commentContainer');
+            $('<p id="userName">').html(current_user.firstname + ' ' + current_user.surname + ' said...').appendTo('#commentContainer');
+            $('<p id= "comment">').html(comment).appendTo('#commentContainer');
             $('#commentText').val('');
         })
         .fail(function(xhr, status, error){

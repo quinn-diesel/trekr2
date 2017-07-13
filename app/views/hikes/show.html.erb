@@ -5,6 +5,8 @@
 
   var markers = <%= raw @hike.markers.to_json include: [:tips] %>
 
+  var current_user = <%= raw @current_user.to_json %>
+
   // var tips = <%=  %>
 
 </script>
@@ -27,7 +29,8 @@
 
 <div id='commentContainer'>
     <% @hike.comments.each do |c| %>
-        <p><%= c.comment %></p>
+            <p id="userName"> <%= @current_user.firstname %> <%= @current_user.surname %> said...</p>
+            <p id="comment"><%= c.comment %></p>
     <% end %>
 </div>
 <textarea id="commentText"placeholder="Comment" rows="8" cols="80"></textarea>
