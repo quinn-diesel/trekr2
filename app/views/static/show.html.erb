@@ -1,18 +1,32 @@
 
-<div id="higherIndex">
-    <h1> TrekR</h1>
-    <h2> Your old TrekS, your new TrekR and everything in between</h2>
-
-
-
-    <% unless @current_user.present? %>
-      <button><%= link_to 'Login', login_path %></button> <button> <%= link_to 'Signup', new_user_path %> </button>
-    <% else %>
-      <p>
-        Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %> |
-        <%= link_to 'Logout', login_path, method: :delete %>
-      </p>
-    <% end %>
+<div class="parallax-container">
+  <div class="parallax"><img src="../images/static_page.jpg">
+  </div>
 </div>
 
+
+<div class="section white" id="higherIndex">
+  <div class="row container">
+    <h1 class="header"> TrekR</h1>
+    <h2 class="grey-text text-darken-3 lighten-3"> Your old TrekS, your new TrekR and everything in between</h2>
+  </div>
+  <div class="buttonTrial">
+      <% unless @current_user.present? %>
+        <button class="btn-floating btn-large red" class="material-icons"><%= link_to 'Login', login_path %></button> <button class="btn-floating btn-large red" class="material-icons"> <%= link_to 'Signup', new_user_path %> </button>
+      <% else %>
+        <p class="chip">
+          Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %> |
+          <%= link_to 'Logout', login_path, method: :delete %>
+             <i class="close material-icons">close</i>
+        </p>
+      <% end %>
+  </div>
+
+</div>
+
+
 <div id="welcomeMap"></div>
+
+<div class="parallax-container">
+  <div class="parallax"><img src="images/parallax2.jpg"></div>
+</div>

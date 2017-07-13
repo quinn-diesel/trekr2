@@ -21,7 +21,7 @@
     <%= javascript_include_tag 'application' %>
 
 
-    <link     href="https://fonts.googleapis.com/css?family=BioRhyme"                 rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
 
   </head>
 
@@ -31,9 +31,9 @@
         <% unless @current_user.present? %>
                 <button> <%= link_to 'Login', login_path %></button> <button><%= link_to 'Signup', new_user_path %></button>
               <% else %>
-                <p>
+                <p class="chip">
                   Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %>
-                  <button class="btn waves-effect waves-light"> <%= link_to 'Logout', login_path, method: :delete %></button>
+                  <button class="chip"> <%= link_to 'Logout', login_path, method: :delete %></button>
               </p>
         <% end %>
       <% end %>

@@ -1,11 +1,13 @@
 <h1>Make an Account</h1>
 
-<% if @user.errors.any? %>
-<ol>
-  <% @user.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ol>
-<% end %>
 
-<%= render partial: 'form' %>
+<div class="btn-floating btn-large red" class="material-icons">
+  <% if @user.errors.any? %>
+  <ol>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ol>
+  <% end %>
+  <%= render partial: 'form' %>
+</div>
