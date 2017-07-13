@@ -188,14 +188,20 @@ $(document).ready(function(){
 
         });
 
+} // if (new hike page)
+
 
         ////////////////////////////////////  HIKES SHOW /////////////////////////////////////////
-    } // if (new hike page)
+
     if( $('.hikes.show').length){
 
         $('#backHikes').on('click', function(){
             window.location.href="/hikes";
         })
+
+        // $('#editHike').on('click', function(){
+        //     window.location.href='/hikes/' + + '/edit';
+        // })
 
         startingWaypoint = waypoints[0];
         console.log(Array.isArray(startingWaypoint));

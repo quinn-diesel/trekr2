@@ -3,8 +3,12 @@
 </script>
 
 <button id="backHikes">All Hikes</button>
+
 <div id="mapid"></div>
 <div>
-    <h2>Hike Name</h2>
-    <p>Description</p>
+    <% if @current_user == @hike.user %>
+       <!-- <button id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></button> -->
+    <% end %>
+    <h3><%= @hike.name %></h3>
+    <p><%= @hike.description %></p>
 </div>
