@@ -31,8 +31,6 @@ before_action :check_if_logged_in, only: [ :hike_create, :update_hikes ]
   end
 
   def update
-    @user = User.find params["id"]
-
 
     if params[:file].present?
       req = Cloudinary::Uploader.upload params[:file]
