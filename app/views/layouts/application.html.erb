@@ -38,7 +38,7 @@
                   <% else %>
                 </li>
               <li>
-                <a <%= link_to @current_user.firstname, user_path(@current_user) %> ></a>
+                <a <%= link_to @current_user.firstname, user_path(@current_user)%> ></a>
               </li>
               <li>
                   <%= link_to 'Logout', login_path, method: :delete %>
@@ -59,9 +59,11 @@
                 </a>
               </li>
               <li>
-                <a>
-                  <% if @current_user == @hike.user %>
-                     <div id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></div>
+                <a id='editHike'>
+                  <% if @hike %>
+                    <% if @current_user == @hike.user %>
+                       <%= link_to 'Edit Hike', edit_hike_path(@hike) %>
+                    <% end %>
                   <% end %>
                 </a>
               </li>

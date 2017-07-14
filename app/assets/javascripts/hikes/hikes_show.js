@@ -24,8 +24,8 @@ if( $('.hikes.show').length){
         window.location.href="/hikes";
     });
 
-    $('#submitComment').on('click',function(){
-        var comment = $('#commentText').val();
+    $('.submitComment').on('click',function(){
+        var comment = $('.commentText').val();
         $.ajax({
             url: '/comments',
             method: 'POST',
@@ -36,9 +36,9 @@ if( $('.hikes.show').length){
             datatype: 'json'
         })
         .done(function(res){
-            $('<p id="userName">').html(current_user.firstname + ' ' + current_user.surname + ' said...').appendTo('#commentContainer');
-            $('<p id= "comment">').html(comment).appendTo('#commentContainer');
-            $('#commentText').val('');
+            $('<p class="userName">').html(current_user.firstname + ' ' + ' : ' + comment ).appendTo('.commentContainer');
+            // $('<p id= "comment">').html(comment).appendTo('.commentContainer');
+            $('.commentText').val('');
         })
         .fail(function(xhr, status, error){
             console.log(xhr, status, error);
