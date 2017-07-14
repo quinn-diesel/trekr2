@@ -31,34 +31,6 @@ $(document).ready(function(){
 //========================================================================
 //some code below from: http://plnkr.co/edit/YjcPKL7kB1bIByu7QJ2u?p=preview
 //========================================================================
-    // var GoogleViews = L.Control.extend({
-    //     onAdd: function(){
-    //
-    //         var buttonOne = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaflet-bottom mapbuttons');
-    //         var buttonTwo = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom');
-    //         buttonOne.id = "terrainView"
-    //         buttonTwo.id = "satelliteView"
-    //         buttonOne.innerHTML ='Terrain'
-    //         buttonTwo.innerHTML = 'Satellite'
-    //         buttonOne.classList.add('mapbuttons')
-    //         buttonTwo.classList.add('mapbuttons')
-    //
-    //     // onAdd: function (mymap) {
-    //     //     var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-    //     //
-    //     //     container.style.backgroundColor = 'white';
-    //     //     container.style.width = '30px';
-    //     //     container.style.height = '30px';
-    //     //
-    //     //     container.onclick = function(){
-    //     //       console.log('buttonClicked');
-    //     //     }
-    //     //     return container;
-    //     //   }
-    //
-    //         return //[buttonOne, buttonTwo];
-    //     }
-    // });
 
     var TerrainButton = L.Control.extend({
         onAdd: function(){
