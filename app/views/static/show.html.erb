@@ -7,19 +7,19 @@
 
 <!-- <div> -->
   <div class="row container">
-    <h1 class="header"> TrekR</h1>
-    <h2 class="grey-text text-darken-3 lighten-3"> Your old TrekS, your new TrekR and everything in between</h2>
-  </div>
-  <div class="buttonTrial">
-      <% unless @current_user.present? %>
-        <button class="btn-floating btn-large red" class="material-icons"><%= link_to 'Login', login_path %></button> <button class="btn-floating btn-large red" class="material-icons"> <%= link_to 'Signup', new_user_path %> </button>
-      <% else %>
-        <p class="chip">
-          Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %> |
-          <%= link_to 'Logout', login_path, method: :delete %>
-             <i class="close material-icons">close</i>
-        </p>
-      <% end %>
+    <h1 class="header"> TREKR</h1>
+    <h2 class="grey-text text-darken-3 lighten-3"> All the treks you could want at your fingertips</h2>
+      <div class="buttonTrial">
+          <% unless @current_user.present? %>
+            <button class="btn-floating btn-large red" class="material-icons"><%= link_to 'Login', login_path %></button> <button class="btn-floating btn-large red" class="material-icons"> <%= link_to 'Signup', new_user_path %> </button>
+          <% else %>
+            <p>
+              Welcome, <%= link_to @current_user.firstname, user_path(@current_user) %> |
+              <%= link_to 'Logout', login_path, method: :delete %>
+                 <i class="close material-icons">close</i>
+            </p>
+          <% end %>
+        </div>
   </div>
 
 <!-- </div> -->
