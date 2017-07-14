@@ -58,6 +58,13 @@
                   <% end %>
                 </a>
               </li>
+              <li>
+                <a>
+                  <% if @current_user == @hike.user %>
+                     <div id='editHike' ><%= link_to 'Edit Hike', edit_hike_path(@hike) %></div>
+                  <% end %>
+                </a>
+              </li>
             </ul>
         </div>
     </nav>
