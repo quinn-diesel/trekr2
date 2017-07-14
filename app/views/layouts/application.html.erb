@@ -28,10 +28,11 @@
   <body class="<%= controller_name %> <%= action_name %>">
 
     <nav>
-      <div class="nav wrapper">
-        <a class="brand-logo right">TREKR
+      <div class="nav wrapper" >
+        <a class="brand-logo right" >TREKR
         <% unless "#{params[:controller]}.#{params[:action]}" == "static.show" ||  "#{params[:controller]}.#{params[:action]}" == "session.new"  %></a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <!-- MAIN NAV -->
+            <ul id="nav-mobile" data-activates="mobile-demo" class="left hide-on-med-and-down" class="button-collapse">
               <li>
                 <% unless @current_user.present? %>
                     <button> <%= link_to 'Login', login_path %></button> <button><%= link_to 'Signup', new_user_path %></button>
@@ -44,11 +45,46 @@
                   <%= link_to 'Logout', login_path, method: :delete %>
                   <% end %>
               </li>
-
               <li>
                   <a><%= link_to 'Create Hike', new_hike_path %> </a>
               </li>
-
+              <li>
+                  <a><%= link_to 'Search for Hikes', hikes_path %></a>
+              </li>
+              <li>
+                <a>
+                  <% if @current_user.present? %>
+                    <%= link_to 'Edit Profile', edit_user_path(@current_user) %>
+                  <% end %>
+                </a>
+              </li>
+              <li>
+                <a id='editHike'>
+                  <% if @hike %>
+                    <% if @current_user == @hike.user %>
+                       <%= link_to 'Edit Hike', edit_hike_path(@hike) %>
+                    <% end %>
+                  <% end %>
+                </a>
+              </li>
+            </ul>
+            <!-- SIDE BAR NAVIGATION -->
+            <ul id="mobile-demo" class="side-nav">
+              <li>
+                <% unless @current_user.present? %>
+                    <button> <%= link_to 'Login', login_path %></button> <button><%= link_to 'Signup', new_user_path %></button>
+                  <% else %>
+                </li>
+              <li>
+                <a <%= link_to @current_user.firstname, user_path(@current_user)%> ></a>
+              </li>
+              <li>
+                  <%= link_to 'Logout', login_path, method: :delete %>
+                  <% end %>
+              </li>
+              <li>
+                  <a><%= link_to 'Create Hike', new_hike_path %> </a>
+              </li>
               <li>
                   <a><%= link_to 'Search for Hikes', hikes_path %></a>
               </li>
