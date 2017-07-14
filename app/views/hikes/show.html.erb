@@ -11,11 +11,9 @@
 
 </script>
 
-<button id="backHikes">All Hikes</button>
-
 <div id="mapid"></div>
 
-<button type="button" id="addMarker">Add Marker</button>
+<!-- <button type="button" id="addMarker">Add Marker</button> -->
 
 <div>
     <% if @current_user == @hike.user %>
@@ -23,6 +21,16 @@
     <% end %>
     <h3><%= @hike.name %></h3>
     <p><%= @hike.description %></p>
+</div>
+
+<div class="fixed-action-btn horizontal">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red"><i class="material-icons" id="addMarker">location_on</i></a></li>
+    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+  </ul>
 </div>
 
 
