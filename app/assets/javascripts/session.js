@@ -2,7 +2,7 @@
 $(document).ready(function () {
 //
 //
-    if( $('.static.show').length){
+    if( $('.session.new').length){
 
       $('body').css( "background-image", 'url("../assets/static_page.jpg")' )
 //

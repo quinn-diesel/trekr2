@@ -43,13 +43,14 @@
               <li>
                   <%= link_to 'Logout', login_path, method: :delete %>
                   <% end %>
-                <% end %>
               </li>
+
               <li>
-                <a><%= link_to 'Create Hike', new_hike_path %></a>
+                  <a><%= link_to 'Create Hike', new_hike_path %> </a>
               </li>
+
               <li>
-                <a><%= link_to 'Search for Hikes', hikes_path %></a>
+                  <a><%= link_to 'Search for Hikes', hikes_path %></a>
               </li>
               <li>
                 <a>
@@ -68,20 +69,9 @@
                 </a>
               </li>
             </ul>
+            <% end %>
         </div>
     </nav>
     <%= yield %>
   </body>
 </html>
-
-
-<!-- <nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo right">Logo</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-  </div>
-</nav> -->
