@@ -11,7 +11,9 @@
 
 </script>
 
-<div id="mapid"></div>
+<div class="parallax-container">
+  <div id="mapid" ></div>
+</div>
 
 <!-- <button type="button" id="addMarker">Add Marker</button> -->
 
@@ -31,24 +33,37 @@
 </div>
 
 
-
-<div id='commentContainer'>
+<!--
+<div class='commentContainer'>
     <% @hike.comments.each do |c| %>
-            <p id="userName"> <%= @current_user.firstname %> <%= @current_user.surname %> said...</p>
-            <p id="comment"><%= c.comment %></p>
-    <% end %>
+            <p class="userName"> <%= @current_user.firstname %> : <%= c.comment %> </p> -->
+            <!-- <p class="comment"><%= c.comment %></p> -->
+    <!-- <% end %>
 </div>
-<textarea id="commentText"placeholder="Comment" rows="8" cols="80"></textarea>
-<button id="submitComment">Submit</button>
+<textarea class="commentText"placeholder="Comment" rows="8" cols="80"></textarea> -->
 
 
 
-<!-- # <%= form_for new_tip_path, html: {multipart: true} do |f| %>
-#
-#   <%= f.label :tip %>
-#   <%= f.text_field :tip %>
-#   <br>
-#
-#   <%= f.submit %>
-#
-# <% end %> -->
+<div class="row">
+   <div class="col s12">
+     <div class="row">
+
+       <div class="input-field col s6">
+         <i class="material-icons prefix">textsms</i>
+         <input class="commentText" type="text" class="autocomplete-input" class="autocomplete">
+         <label for="autocomplete-input">COMMENT</label>
+         <button class="submitComment">Submit</button>
+       </div>
+
+       <div class="input-field col s6">
+             <div class='commentContainer'>
+                 <% @hike.comments.each do |c| %>
+                         <p class="userName"> <%= @current_user.firstname %> : <%= c.comment %> </p>
+                 <% end %>
+           </div>
+       </div>
+
+
+     </div>
+   </div>
+ </div>
