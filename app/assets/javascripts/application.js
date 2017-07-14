@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require leaflet-src
 //= require_tree .
+
+$(document).ready(funciton (){
+  $(".button-collapse").sideNav();
+})
