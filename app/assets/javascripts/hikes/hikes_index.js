@@ -28,10 +28,46 @@ $(document).ready(function(){
         accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
     }).addTo(mymap);
 
-
 //========================================================================
 //some code below from: http://plnkr.co/edit/YjcPKL7kB1bIByu7QJ2u?p=preview
 //========================================================================
+    var GoogleViews = L.Control.extend({
+        onAdd: function(){
+
+            var buttonOne = document.createElement("button");
+            var buttonTwo = document.createElement("button");
+            buttonOne.id = "terrainView"
+            buttonTwo.id = "satelliteView"
+            buttonOne.innerHTML ='Terrain'
+            buttonTwo.innerHTML = 'Satellite'
+            buttonOne.classList.add('mapbuttons')
+            buttonTwo.classList.add('mapbuttons')
+
+            return buttonOne, buttonTwo
+        }
+    });
+
+    (new GoogleViews).addTo(mymap);
+
+    $('#terrainView').on('click', function(){
+
+        var googleTerrain = L.tileLayer('http://{s}.google.com/vt/key={accessToken}&lyrs=p&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3'],
+            accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
+        }).addTo(mymap);
+
+    }); // terrain view click handler
+
+    $('#satelliteView').on('click', function(){
+
+        var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
+        }).addTo(mymap);
+
+    }); // satellite view click handler
 
 
     var GoogleSearch = L.Control.extend({
