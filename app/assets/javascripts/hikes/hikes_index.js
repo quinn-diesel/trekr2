@@ -31,26 +31,62 @@ $(document).ready(function(){
 //========================================================================
 //some code below from: http://plnkr.co/edit/YjcPKL7kB1bIByu7QJ2u?p=preview
 //========================================================================
-    var GoogleViews = L.Control.extend({
+    // var GoogleViews = L.Control.extend({
+    //     onAdd: function(){
+    //
+    //         var buttonOne = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaflet-bottom mapbuttons');
+    //         var buttonTwo = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom');
+    //         buttonOne.id = "terrainView"
+    //         buttonTwo.id = "satelliteView"
+    //         buttonOne.innerHTML ='Terrain'
+    //         buttonTwo.innerHTML = 'Satellite'
+    //         buttonOne.classList.add('mapbuttons')
+    //         buttonTwo.classList.add('mapbuttons')
+    //
+    //     // onAdd: function (mymap) {
+    //     //     var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+    //     //
+    //     //     container.style.backgroundColor = 'white';
+    //     //     container.style.width = '30px';
+    //     //     container.style.height = '30px';
+    //     //
+    //     //     container.onclick = function(){
+    //     //       console.log('buttonClicked');
+    //     //     }
+    //     //     return container;
+    //     //   }
+    //
+    //         return //[buttonOne, buttonTwo];
+    //     }
+    // });
+
+    var TerrainButton = L.Control.extend({
         onAdd: function(){
-
-            var buttonOne = document.createElement("button");
-            var buttonTwo = document.createElement("button");
+            var buttonOne = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaflet-right mapbuttons');
             buttonOne.id = "terrainView"
-            buttonTwo.id = "satelliteView"
             buttonOne.innerHTML ='Terrain'
-            buttonTwo.innerHTML = 'Satellite'
-            buttonOne.classList.add('mapbuttons')
-            buttonTwo.classList.add('mapbuttons')
-
-            return buttonOne, buttonTwo
+            // buttonOne.classList.add('mapbuttons')
+            return buttonOne;
         }
     });
 
-    (new GoogleViews).addTo(mymap);
+    var SatelliteButton = L.Control.extend({
+        onAdd: function(){
+            var buttonTwo = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaftlet-left');
+            buttonTwo.id = "satelliteView"
+            buttonTwo.innerHTML = 'Satellite'
+            // buttonTwo.classList.add('mapbuttons')
+            return buttonTwo;
+        }
+    });
+
+    //(new GoogleViews).addTo(mymap);
+
+    (new TerrainButton).addTo(mymap);
+    (new SatelliteButton).addTo(mymap);
 
     $('#terrainView').on('click', function(){
-
+        console.log('terrain');
         var googleTerrain = L.tileLayer('http://{s}.google.com/vt/key={accessToken}&lyrs=p&x={x}&y={y}&z={z}',{
             maxZoom: 20,
             subdomains:['mt0','mt1','mt2','mt3'],
@@ -60,7 +96,7 @@ $(document).ready(function(){
     }); // terrain view click handler
 
     $('#satelliteView').on('click', function(){
-
+        console.log('satellite');
         var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3'],
@@ -75,7 +111,7 @@ $(document).ready(function(){
        var element = document.createElement("input");
 
        element.id = "searchBox";
-
+       element.classList.add('leaflet-bar')
        return element;
      }
    });
