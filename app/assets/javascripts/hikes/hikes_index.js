@@ -12,8 +12,8 @@ $(document).ready(function(){
     function resizeDiv(){
         vpw = $(window).width();
         vph = $(window).height();
-        $('#mapid').css({'width': vpw});
-        $('#mapid').css({'height': vph});
+        $('#mapid').css({'width':vpw});
+        $('#mapid').css({'height':vph});
     }
 
 
@@ -21,6 +21,7 @@ $(document).ready(function(){
   if( $('.hikes.index').length){
   // page-specific code to run
 
+   // $('#mapid').css({'width':"100%",'height':"100%"});
     //
     var mymap = L.map('mapid'); //.setView([-33.804122, 151.246096], 13);
 

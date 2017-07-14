@@ -6,10 +6,11 @@
 
 <h1>Edit Hike</h1>
 
-<%= text_field_tag :name, nil , id: "hikeName", placeholder: "Name" %><br>
+<%= render partial: 'form' %>
+
+<!-- <%= text_field_tag :name, nil , id: "hikeName", placeholder: "Name" %><br>
 <%= text_area_tag :description, nil ,  id: "hikeDesc", placeholder: "Description" %>
 <%#= text_area_tag :id, nil, id: "id", placeholder: "ID" %>
-<br>
+<br> -->
 
-<button id="updateHike" hike-id="<%= @hike.id %>">Update Hike Path</button>
 <div id="mapid"></div>

@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     function resizeDiv(){
         vpw = $(window).width();
-        $('#mapid').css({'width': vpw});
+        $('#showMap').css({'width': vpw});
     }
 
     ////////////////////////////////////  HIKES SHOW /////////////////////////////////////////
@@ -50,7 +50,7 @@ if( $('.hikes.show').length){
 
     // var newMarker =
 
-    var mymap = L.map('mapid').setView(startingWaypoint, 13);
+    var mymap = L.map('showMap').setView(startingWaypoint, 13);
 
     var googleTerrain = L.tileLayer('http://{s}.google.com/vt/key={accessToken}&lyrs=p&x={x}&y={y}&z={z}',{
         maxZoom: 20,
