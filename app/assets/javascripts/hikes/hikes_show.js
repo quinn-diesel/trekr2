@@ -58,6 +58,51 @@ if( $('.hikes.show').length){
         accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
     }).addTo(mymap);
 
+    var TerrainButton = L.Control.extend({
+        onAdd: function(){
+            var buttonOne = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaflet-right mapbuttons');
+            buttonOne.id = "terrainView"
+            buttonOne.innerHTML ='Terrain'
+            // buttonOne.classList.add('mapbuttons')
+            return buttonOne;
+        }
+    });
+
+    var SatelliteButton = L.Control.extend({
+        onAdd: function(){
+            var buttonTwo = L.DomUtil.create("button", 'leaflet-bar leaflet-control leaflet-control-custom leaftlet-left');
+            buttonTwo.id = "satelliteView"
+            buttonTwo.innerHTML = 'Satellite'
+            // buttonTwo.classList.add('mapbuttons')
+            return buttonTwo;
+        }
+    });
+
+    //(new GoogleViews).addTo(mymap);
+
+    (new TerrainButton).addTo(mymap);
+    (new SatelliteButton).addTo(mymap);
+
+    $('#terrainView').on('click', function(){
+        console.log('terrain');
+        var googleTerrain = L.tileLayer('http://{s}.google.com/vt/key={accessToken}&lyrs=p&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3'],
+            accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
+        }).addTo(mymap);
+
+    }); // terrain view click handler
+
+    $('#satelliteView').on('click', function(){
+        console.log('satellite');
+        var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
+        }).addTo(mymap);
+
+    }); // satellite view click handler
+
     var leafletPoints = [];
 
     for(var i = 0; i < waypoints.length; i++) {
