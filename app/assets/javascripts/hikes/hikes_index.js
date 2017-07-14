@@ -11,7 +11,9 @@ $(document).ready(function(){
 
     function resizeDiv(){
         vpw = $(window).width();
+        vph = $(window).height();
         $('#mapid').css({'width': vpw});
+        $('#mapid').css({'height': vph});
     }
 
 
