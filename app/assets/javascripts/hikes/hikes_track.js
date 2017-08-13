@@ -1,32 +1,78 @@
 
 $(document).ready(function (){
 
-
   console.log("hike tracking loaded");
-
 
 
   if( $('body.hikes.track_hike').length) {
 
+
+    // var options = {
+    //   timeout: 1000,
+    // };
+    //
+    // function success(pos){
+    //   var crd = pos.coords;
+    // };
+    //
+    // function error(errr){
+    //   console.log(`ERROR(${err.code}): ${err.message}`);
+    // };
+
+
     $('#trackGo').on('click', function (){
 
-      navigator.geolocation.watchPosition(function(position) {
-      console.log('loc', position.coords.latitude, position.coords.longitude);
-      }, null, {timeout: 2000});
 
-    });
+      var options = {
+        // enableHighAccuracy: true,
+        timeout: 1000,
+        // maximumAge: 0
+      };
 
+      function success(pos) {
+        var crd = pos.coords;
+        var lat = crd.latitude;
+        var long = crd.longitude;
+
+      console.log('Your current position is:');
+      console.log(`Latitude : ${lat}`);
+      console.log(`Longitude: ${long}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+    };
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    };
+
+    navigator.geolocation.getCurrentPosition(success);
+
+
+  //   navigator.geolocation.watchPosition(function(position) {
+  //   console.log('loc', position.coords.latitude, position.coords.longitude);
+  // }, {timeout: 1000});
+
+    // var marker = new L.marker(e.latlng).addtop
+
+  }); // ON start click
+
+  $('#trackStop').on('click',function (){
+    navigator.geolocation.clearWatch();
+  });
 
 
 
 // GOOGLE MAP //
-    var trackMap = L.map('trackMap').setView(startingWaypoint, 13);
+    var trackMap = L.map('trackMap').setView([-33.804122, 151.246096], 13);
 
     var googleTerrain = L.tileLayer('http://{s}.google.com/vt/key={accessToken}&lyrs=p&x={x}&y={y}&z={z}',{
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3'],
         accessToken: 'AIzaSyB4e1KgLbKlIWzhOiPoJcBW6v_02e6fwCg'
-    }).addTo(mymap);
+    }).addTo(trackMap);
+
+
+    // add marker to he current location
+
 
 
 

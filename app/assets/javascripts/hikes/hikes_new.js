@@ -1,4 +1,4 @@
-
+  
 var sm;  // scribblemaps object
 
 
