@@ -28,7 +28,7 @@ class HikesController < ApplicationController
         waypoint = [w.lat, w.long]
         @waypoints.push waypoint
       end
-      
+
   end
 
   def edit
@@ -90,11 +90,6 @@ class HikesController < ApplicationController
      def update_waypoints
        puts params
        waypointArray = params[:waypoints]
-       #   desc = params[:description]
-       #   puts waypointArray
-       #   hike = Hike.create(hike_params)
-
-    #    binding.pry
 
        hike = Hike.find params['id']
        hike.update({
@@ -102,7 +97,6 @@ class HikesController < ApplicationController
            description: params[:description],
            user: @current_user
        })
-       #   testies = []
 
        if params[:waypoints].present?
          waypointArray.each do |key, val|
@@ -112,11 +106,8 @@ class HikesController < ApplicationController
                  lat: lat,
                  long: long,
                  hike_id: hike.id
-             })
-       #   testies.push({
-           #       lat: lat,
-           #       long: long
-           #       })
+             });
+
          end
        end
 

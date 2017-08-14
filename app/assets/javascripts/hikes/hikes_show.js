@@ -142,7 +142,7 @@ if( $('.hikes.show').length){
 
       var form = $('<form>')
       var textarea = $('<textarea class="materialize-textarea" placeholder="Enter Your Tip!">')
-      
+
       var marker = new L.marker(e.latlng).addTo(mymap)
       .bindPopup('<textarea placeholder="Enter your tip!" id="markerTip"></textarea><br><button id="saveTip" lat="' + e.latlng.lat + '" lng="' + e.latlng.lng + '">Save Tip</button>' )
       .openPopup();

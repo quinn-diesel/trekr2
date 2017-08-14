@@ -1,4 +1,4 @@
-# Naughts & Crosses: Guardians of the Galaxy Style
+# TREKR
 
 If you are always searching for the next adventure, then you will breath a sigh of relief upon signing up with Trekr.  Having the ability to search and share information on hikes in my area, or in a location which I plan to visit, is always limited and restricted to my own social network. With Trekr, I have the ability to create, share, and explore all the hiking data in the site's online community at any time!
 

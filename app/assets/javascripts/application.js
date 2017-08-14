@@ -15,6 +15,6 @@
 //= require leaflet-src
 //= require_tree .
 
-$(document).ready(funciton (){
+$(document).ready(function (){
   $(".button-collapse").sideNav();
 })
