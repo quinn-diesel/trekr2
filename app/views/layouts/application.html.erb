@@ -52,6 +52,9 @@
                   <a><%= link_to 'Search for Hikes', hikes_path %></a>
               </li>
               <li>
+                  <a><%= link_to 'Track Me', hikes_track_hike_path %></a>
+              </li>
+              <li>
                 <a>
                   <% if @current_user.present? %>
                     <%= link_to 'Edit Profile', edit_user_path(@current_user) %>
@@ -64,12 +67,12 @@
                     <% if @current_user == @hike.user %>
                        <%= link_to 'Edit Hike', edit_hike_path(@hike) %>
                     <% end %>
-                  <% end %>
                 </a>
               </li>
+                <% end %>
             </ul>
             <!-- SIDE BAR NAVIGATION -->
-            <ul id="mobile-demo" class="side-nav">
+            <ul id="mobile-demo" id="slide-out" class="side-nav">
               <li>
                 <% unless @current_user.present? %>
                     <button> <%= link_to 'Login', login_path %></button> <button><%= link_to 'Signup', new_user_path %></button>

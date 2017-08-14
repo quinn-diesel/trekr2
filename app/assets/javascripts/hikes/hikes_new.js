@@ -1,10 +1,10 @@
-
+  
 var sm;  // scribblemaps object
 
 
 $(document).ready(function(){
 
-    console.log("loaded.");
+    console.log("new hike loaded.");
     // console.log('test object: ', '<%= @startLocation %>');
 
     window.onresize = function(event){

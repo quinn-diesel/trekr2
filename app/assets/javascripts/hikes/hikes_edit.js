@@ -2,7 +2,7 @@ var sm;  // scribblemaps object
 
 $(document).ready(function(){
 
-    console.log("loaded.");
+    console.log("edit hikes loaded.");
     // console.log('test object: ', '<%= @startLocation %>');
 
     window.onresize = function(event){
@@ -22,7 +22,7 @@ $(document).ready(function(){
     //   leafletPoints.push( p );
     // }
 
-    if( $('.hikes.edit').length){
+    if( $('body.hikes.edit').length){
 
     startWaypoint = waypoints[0];
     window.scribblemaps = {

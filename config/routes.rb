@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post   '/hikes/savepoints' => 'hikes#save_waypoints'
   post   '/hikes/updatepoints' => 'hikes#update_waypoints'
 
+  get '/hikes/track_hike' => 'hikes#track_hike'
+
   resources :users
   resources :hikes
   resources :completions

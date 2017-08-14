@@ -2,7 +2,7 @@ var markers = [];
 
 $(document).ready(function(){
 
-    console.log("loaded.");
+    console.log("hike index loaded.");
     // console.log('test object: ', '<%= @startLocation %>');
 
     window.onresize = function(event){
